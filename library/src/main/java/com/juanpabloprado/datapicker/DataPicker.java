@@ -67,7 +67,7 @@ public class DataPicker extends DialogFragment {
    */
   @Override public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
-    View view = inflater.inflate(R.layout.country_picker, container, false);
+    View view = inflater.inflate(R.layout.data_picker, container, false);
 
     // Set dialog title if show as dialog
     Bundle args = getArguments();

@@ -34,7 +34,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.CountryHolder>
   }
 
   @Override public CountryHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-    return new CountryHolder(mInflater.inflate(R.layout.row, parent, false));
+    return new CountryHolder(mInflater.inflate(R.layout.data_row, parent, false));
   }
 
   @Override public void onBindViewHolder(CountryHolder holder, int position) {

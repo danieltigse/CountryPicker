@@ -1,4 +1,4 @@
-package com.juanpabloprado.countrypicker.sample;
+package com.juanpabloprado.datapicker;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.juanpabloprado.countrypicker;
+package com.juanpabloprado.datapicker;
 
 import android.os.Parcel;
 import android.os.Parcelable;

@@ -1,14 +1,13 @@
-package com.juanpabloprado.countrypicker.sample;
+package com.juanpabloprado.datapicker.sample;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
-import com.juanpabloprado.countrypicker.Data;
-import com.juanpabloprado.countrypicker.DataPicker;
-import com.juanpabloprado.countrypicker.DataPickerListener;
+import com.juanpabloprado.datapicker.Data;
+import com.juanpabloprado.datapicker.DataPicker;
+import com.juanpabloprado.datapicker.DataPickerListener;
 
 import java.util.ArrayList;
 import java.util.List;

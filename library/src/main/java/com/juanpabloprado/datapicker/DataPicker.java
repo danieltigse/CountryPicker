@@ -1,4 +1,4 @@
-package com.juanpabloprado.countrypicker;
+package com.juanpabloprado.datapicker;
 
 import android.app.Activity;
 import android.os.Bundle;

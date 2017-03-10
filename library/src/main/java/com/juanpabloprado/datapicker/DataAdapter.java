@@ -1,4 +1,4 @@
-package com.juanpabloprado.countrypicker;
+package com.juanpabloprado.datapicker;
 
 import android.os.Build;
 import android.support.v4.content.ContextCompat;

@@ -80,8 +80,8 @@ public class DataPicker extends DialogFragment {
       getDialog().getWindow().setLayout(width, height);
     }
 
-    EditText searchEditText = (EditText) view.findViewById(R.id.country_picker_search);
-    RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.country_picker_recycler_view);
+    EditText searchEditText = (EditText) view.findViewById(R.id.data_picker_search);
+    RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.data_picker_recycler_view);
 
     // Sort the dataList based on country name
     Collections.sort(dataList);

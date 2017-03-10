@@ -16,21 +16,21 @@ import java.util.List;
 import java.util.Locale;
 import java.util.regex.Pattern;
 
-public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryHolder>
+public class DataAdapter extends RecyclerView.Adapter<DataAdapter.CountryHolder>
     implements Filterable {
 
   private static final Pattern ACCENTS_PATTERN = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
 
-  private CountryPicker mCountryPicker;
+  private DataPicker mDataPicker;
   private LayoutInflater mInflater;
-  private CountryPickerListener mListener;
-  private List<Country> mFilteredCountries;
+  private DataPickerListener mListener;
+  private List<Data> mFilteredCountries;
 
-  public CountryAdapter(CountryPicker countryPicker, CountryPickerListener listener) {
-    mCountryPicker = countryPicker;
-    mInflater = LayoutInflater.from(countryPicker.getActivity());
+  public DataAdapter(DataPicker dataPicker, DataPickerListener listener) {
+    mDataPicker = dataPicker;
+    mInflater = LayoutInflater.from(dataPicker.getActivity());
     mListener = listener;
-    mFilteredCountries = new ArrayList<Country>(CountryPicker.countries);
+    mFilteredCountries = new ArrayList<Data>(DataPicker.dataList);
   }
 
   @Override public CountryHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -38,20 +38,20 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryH
   }
 
   @Override public void onBindViewHolder(CountryHolder holder, int position) {
-    final Country country = mFilteredCountries.get(position);
+    final Data data = mFilteredCountries.get(position);
 
-    holder.textView.setText(country.name);
+    holder.textView.setText(data.name);
 
-    String drawableName = "flag_" + country.code.toLowerCase(Locale.ENGLISH);
-    int drawableId = mCountryPicker.getResources()
-        .getIdentifier(drawableName, "drawable", mCountryPicker.getActivity().getPackageName());
+    String drawableName = "flag_" + data.id.toLowerCase(Locale.ENGLISH);
+    int drawableId = mDataPicker.getResources()
+        .getIdentifier(drawableName, "drawable", mDataPicker.getActivity().getPackageName());
     if (drawableId != 0) {
       holder.imageView.setImageDrawable(
-          ContextCompat.getDrawable(mCountryPicker.getActivity(), drawableId));
+          ContextCompat.getDrawable(mDataPicker.getActivity(), drawableId));
     }
     holder.itemView.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
-        mListener.onSelectCountry(country.name, country.code);
+        mListener.onSelectCountry(data.name, data.id);
       }
     });
   }
@@ -71,7 +71,7 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryH
     }
   }
 
-  public void refill(List<Country> countries) {
+  public void refill(List<Data> countries) {
     mFilteredCountries.clear();
     mFilteredCountries.addAll(countries);
     notifyDataSetChanged();
@@ -83,11 +83,11 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryH
         FilterResults results = new FilterResults();
         if (constraint != null) {
 
-          List<Country> filteredCountries = new ArrayList<Country>();
-          for (Country country : CountryPicker.countries) {
+          List<Data> filteredCountries = new ArrayList<Data>();
+          for (Data data : DataPicker.dataList) {
 
-            if (containsIgnoreCaseAndAccents(country.name, (String) constraint)) {
-              filteredCountries.add(country);
+            if (containsIgnoreCaseAndAccents(data.name, (String) constraint)) {
+              filteredCountries.add(data);
             }
           }
           results.values = filteredCountries;
@@ -99,7 +99,7 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryH
       @SuppressWarnings("unchecked") @Override
       protected void publishResults(CharSequence constraint, FilterResults results) {
         if (results != null) {
-          refill((List<Country>) results.values);
+          refill((List<Data>) results.values);
         }
       }
     };

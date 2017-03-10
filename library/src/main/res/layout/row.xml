@@ -9,7 +9,8 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginLeft="10dp"
-        android:padding="10dp" />
+        android:padding="10dp"
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/row_title"

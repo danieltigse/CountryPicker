@@ -1,5 +1,5 @@
 package com.juanpabloprado.countrypicker;
 
-public interface CountryPickerListener {
+public interface DataPickerListener {
   void onSelectCountry(String name, String code);
 }
